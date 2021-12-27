@@ -1,7 +1,7 @@
-import { ApiResponseType, FailureProcessingOptionsType } from '.';
+import { ApiResponseType, DefaultHandleRequestFailureResponseCreator, FailureProcessingOptionsType } from '.';
 
 export type HandleRequestFailureResponseCreator = (
     error: Error,
     options: FailureProcessingOptionsType,
-    defaultResponseCreator: HandleRequestFailureResponseCreator
+    defaultResponseCreator: DefaultHandleRequestFailureResponseCreator
 ) => ApiResponseType<unknown, unknown>;

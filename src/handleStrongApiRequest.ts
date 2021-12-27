@@ -3,9 +3,7 @@ import { mapRawApiRequestToPayload } from '@vladbasin/strong-api-mapping';
 import { ApiRequestType, StrongApiOptionsType } from './types';
 import { processHandleRequestFailure, provideRawApiResponse } from '.';
 
-export const handleStrongApiRequest = <TRequestPayload, TResponseFormat>(
-    options: StrongApiOptionsType<TRequestPayload, TResponseFormat>
-) => {
+export const handleStrongApiRequest = <TRequestPayload>(options: StrongApiOptionsType<TRequestPayload>) => {
     return Result.Start()
         .onSuccess(() => options.request.provideRaw())
         .onSuccess(rawApiRequest =>
