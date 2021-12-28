@@ -6,12 +6,5 @@ export const processHandleRequestFailure = (
     processor: HandleRequestFailureProcessorType
 ): ApiResponseType<unknown, unknown> => {
     const errorResponseCreator = processor.responseCreator || createErrorResponse;
-    const errorResponse = errorResponseCreator(error, processor.options, createErrorResponse);
-
-    return {
-        statusCode: errorResponse.statusCode,
-        payload: {
-            error: errorResponse.payload,
-        },
-    };
+    return errorResponseCreator(error, processor.options, createErrorResponse);
 };
