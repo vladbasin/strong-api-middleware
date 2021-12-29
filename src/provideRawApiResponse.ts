@@ -30,7 +30,7 @@ export const provideRawApiResponse = (response: ApiResponseType<unknown, unknown
 
     return {
         body: targetBody || '',
-        headers: { [HttpHeaders.ContentType]: HttpContentTypes.ApplicationJson, ...headers },
+        headers: { [HttpHeaders.ContentType.toLowerCase()]: HttpContentTypes.ApplicationJson, ...headers },
         multiValueHeaders: multiValueHeadersEnsured,
         statusCode,
     };
