@@ -7,8 +7,8 @@ export const provideRawApiResponse = (response: ApiResponseType<unknown, unknown
     const { payload, statusCode } = response;
 
     const targetPayload = payload?.data || payload?.error;
-    if (isNil(targetPayload)) {
-        throw new Error('Cannot format response, because both data and error are empty in ApiResponseType<>');
+    if (!isNil(payload?.data) && !isNil(payload?.error)) {
+        throw new Error('Cannot format response, because both data and error are defined in api response');
     }
 
     const { body, headers, multiValueHeaders } = mapPayloadToRawApiResponse(targetPayload);
@@ -29,7 +29,7 @@ export const provideRawApiResponse = (response: ApiResponseType<unknown, unknown
     }
 
     return {
-        body: targetBody || '',
+        body: targetBody,
         headers: { [HttpHeaders.ContentType.toLowerCase()]: HttpContentTypes.ApplicationJson, ...headers },
         multiValueHeaders: multiValueHeadersEnsured,
         statusCode,
