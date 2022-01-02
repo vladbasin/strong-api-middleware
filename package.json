@@ -50,7 +50,8 @@
         "@vladbasin/strong-api-models": "^1.0.1",
         "@vladbasin/ts-result": "^1.1.9",
         "@vladbasin/ts-types": "^1.0.4",
-        "lodash": "^4.17.21"
+        "lodash": "^4.17.21",
+        "moment": "^2.29.1"
     },
     "peerDependencies": {
         "@vladbasin/strong-api-mapping": "^1.0.2",

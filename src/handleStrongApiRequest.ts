@@ -1,11 +1,15 @@
 import { Result } from '@vladbasin/ts-result';
 import { mapRawApiRequestToPayload } from '@vladbasin/strong-api-mapping';
 import { ApiRequestType, StrongApiOptionsType, StrongApiResponseType } from './types';
-import { processHandleRequestFailure, provideRawApiResponse } from '.';
+import { processHandleRequestFailure, provideRawApiResponse, useJsonDatesFormat } from '.';
 
 export const handleStrongApiRequest = <TRequestPayload>(
     options: StrongApiOptionsType<TRequestPayload>
 ): Result<StrongApiResponseType> => {
+    if (options.json?.parseDates === true) {
+        useJsonDatesFormat(options.json?.datesFormat);
+    }
+
     return Result.Start()
         .onSuccess(() => options.request.provideRaw())
         .onSuccess(rawApiRequest =>
