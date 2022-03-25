@@ -12,8 +12,13 @@ export const handleStrongApiRequest = <TRequestPayload>(
 
     return Result.Start()
         .onSuccess(() => options.request.provideRaw())
-        .onSuccess(rawApiRequest =>
-            mapRawApiRequestToPayload(rawApiRequest, options.request.payload.Model, options.request.payload.schema)
+        .onSuccess(raw =>
+            mapRawApiRequestToPayload({
+                rawApiRequest: raw.api,
+                customApiRequestData: raw.custom,
+                PayloadConstructor: options.request.payload.Model,
+                schema: options.request.payload.schema,
+            })
         )
         .onSuccess((payload): ApiRequestType<TRequestPayload> => {
             return {

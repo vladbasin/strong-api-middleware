@@ -234,10 +234,10 @@
   resolved "https://registry.yarnpkg.com/@vladbasin/strong-api-constants/-/strong-api-constants-1.0.0.tgz#9621f0e6d5a7cc7a9cbd3631add280c76b91bdaa"
   integrity sha512-lOhaIXmUQQOr18XCxFt6s0M80nloEQWvgJHdYH4k5IFQmyVaVj0bg8Bxu+Q3c/roPlHqqrCHT5elWJtbXaUnzA==
 
-"@vladbasin/strong-api-mapping@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@vladbasin/strong-api-mapping/-/strong-api-mapping-1.0.2.tgz#07e42f8dc665f4a6bd45fc597379fc185ec40bad"
-  integrity sha512-W7Zgb6w2Od4tnxw+CAl1hu/hpaAj96EXWRNh4QQ9yN8Cr0OPZ3fAdPimDORWzYnHkLtvER42I7ZnmpjJKbM8Jw==
+"@vladbasin/strong-api-mapping@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@vladbasin/strong-api-mapping/-/strong-api-mapping-1.1.1.tgz#194f8fa1a335342fdc64457eddd29e2a4d275641"
+  integrity sha512-wTC4CUn1eN6n1XdD3cfDHArTxLHjOEx/6VkU/pu2EwwaBVlaME7z4qJk392ymZWKgGumNnW6mcmnlzXGaq5NTQ==
   dependencies:
     "@vladbasin/strong-api-constants" "^1.0.0"
     "@vladbasin/strong-api-models" "^1.0.1"

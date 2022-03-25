@@ -89,6 +89,7 @@ handleStrongApiRequest({
         },
         provideRaw: () => {
             // synchronously or ASYNChronously provide RawApiRequest object (headers, body, query string) based on your HTTP stack
+            // you can also provide CustomApiRequestDataType values to introduce and feed custom decorators with data
         },
         handle: ({ payload }) => {
             // handle api request

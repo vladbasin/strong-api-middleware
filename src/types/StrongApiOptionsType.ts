@@ -1,4 +1,4 @@
-import { RawApiRequestType } from '@vladbasin/strong-api-mapping';
+import { CustomApiRequestDataType, RawApiRequestType } from '@vladbasin/strong-api-mapping';
 import { Result } from '@vladbasin/ts-result';
 import { ObjectSchema } from 'joi';
 import { ApiRequestType, ApiResponseType, Newable } from '.';
@@ -10,7 +10,7 @@ export type StrongApiOptionsType<TRequestPayload> = {
             Model: Newable<TRequestPayload>;
             schema: ObjectSchema<TRequestPayload>;
         };
-        provideRaw: () => Result<RawApiRequestType>;
+        provideRaw: () => Result<{ api: RawApiRequestType; custom: CustomApiRequestDataType }>;
         handle: (request: ApiRequestType<TRequestPayload>) => Result<ApiResponseType<unknown, unknown>>;
     };
     response: {
