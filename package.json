@@ -1,6 +1,6 @@
 {
     "name": "@vladbasin/strong-api-middleware",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Strongly typed API middleware",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -47,7 +47,6 @@
     },
     "dependencies": {
         "@vladbasin/strong-api-constants": "^1.0.0",
-        "@vladbasin/strong-api-models": "^1.0.1",
         "@vladbasin/ts-result": "^1.1.9",
         "@vladbasin/ts-types": "^1.0.4",
         "lodash": "^4.17.21",
@@ -55,6 +54,7 @@
     },
     "peerDependencies": {
         "@vladbasin/strong-api-mapping": "^1.0.2",
+        "@vladbasin/strong-api-models": "^1.0.2",
         "joi": "^17.5.0",
         "reflect-metadata": "^0.1.13"
     }
