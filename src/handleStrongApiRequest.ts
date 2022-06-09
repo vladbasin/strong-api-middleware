@@ -26,12 +26,14 @@ export const handleStrongApiRequest = <TRequestPayload>(
             };
         })
         .onSuccess(request => options.request.handle(request))
-        .onSuccess(response => (options.response.processSuccess ? options.response.processSuccess(response) : response))
         .onFailureCompensateWithError(error => processHandleRequestFailure(error, options.response.processFailure))
         .onSuccess(
             (response): StrongApiResponseType => ({
                 raw: provideRawApiResponse(response),
                 api: response,
             })
+        )
+        .onSuccess(response =>
+            options.response.postProcess ? { ...response, raw: options.response.postProcess(response) } : response
         );
 };
