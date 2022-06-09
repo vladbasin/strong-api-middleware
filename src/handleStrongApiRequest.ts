@@ -1,6 +1,8 @@
 import { Result } from '@vladbasin/ts-result';
 import { mapRawApiRequestToPayload } from '@vladbasin/strong-api-mapping';
-import { ApiRequestType, StrongApiOptionsType, StrongApiResponseType } from './types';
+import { Maybe } from '@vladbasin/ts-types';
+import { isNil } from 'lodash';
+import { ApiRequestType, RawRequestType, StrongApiOptionsType, StrongApiResponseType } from './types';
 import { processHandleRequestFailure, provideRawApiResponse, useJsonDatesFormat } from '.';
 
 export const handleStrongApiRequest = <TRequestPayload>(
@@ -10,8 +12,13 @@ export const handleStrongApiRequest = <TRequestPayload>(
         useJsonDatesFormat(options.json?.datesFormat);
     }
 
+    let rawRequest: Maybe<RawRequestType>;
+
     return Result.Start()
         .onSuccess(() => options.request.provideRaw())
+        .onSuccessExecute(raw => {
+            rawRequest = raw;
+        })
         .onSuccess((raw): ApiRequestType<TRequestPayload> => {
             const payload = mapRawApiRequestToPayload({
                 rawApiRequest: raw.api,
@@ -34,6 +41,8 @@ export const handleStrongApiRequest = <TRequestPayload>(
             })
         )
         .onSuccess(response =>
-            options.response.postProcess ? { ...response, raw: options.response.postProcess(response) } : response
+            isNil(rawRequest) || isNil(options.response.postProcess)
+                ? response
+                : { ...response, raw: options.response.postProcess(response, rawRequest) }
         );
 };
