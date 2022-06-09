@@ -15,6 +15,7 @@ export type StrongApiOptionsType<TRequestPayload> = {
     };
     response: {
         processFailure: HandleRequestFailureProcessorType;
+        processSuccess?: (response: ApiResponseType<unknown, unknown>) => ApiResponseType<unknown, unknown>,
     };
     json?: {
         parseDates?: boolean;

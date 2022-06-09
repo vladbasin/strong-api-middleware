@@ -26,6 +26,7 @@ export const handleStrongApiRequest = <TRequestPayload>(
             };
         })
         .onSuccess(request => options.request.handle(request))
+        .onSuccess(response => (options.response.processSuccess ? options.response.processSuccess(response) : response))
         .onFailureCompensateWithError(error => processHandleRequestFailure(error, options.response.processFailure))
         .onSuccess(
             (response): StrongApiResponseType => ({
