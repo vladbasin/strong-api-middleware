@@ -1,6 +1,6 @@
 {
     "name": "@vladbasin/strong-api-middleware",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Strongly typed API middleware",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
