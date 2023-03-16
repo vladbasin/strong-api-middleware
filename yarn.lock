@@ -250,13 +250,14 @@
   dependencies:
     "@vladbasin/strong-api-constants" "^1.0.0"
 
-"@vladbasin/ts-result@^1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@vladbasin/ts-result/-/ts-result-1.1.11.tgz#8d54ddb7f5c911d463ddaf7afed5e82f6cbec8da"
-  integrity sha512-iYGUPb3VGoVNo4MXJYOgs1540Ww8KtVtfcAa4ClT2Br1Ot1Xx8RXI6RMSPWeA6NTFoGKM2hXIi4rM8CRWuiznQ==
+"@vladbasin/ts-result@^1.1.12":
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/@vladbasin/ts-result/-/ts-result-1.1.12.tgz#c11ff7cb7a8df3441f481b871bf0006775c046e7"
+  integrity sha512-wPgh7BHkES/MwRxqUDdYePb5hHipkVD2YTlN7N/F//zLzbvJb1LHNr+qR+brS/7kyZKl2NE7igAyZC5k4D/gwg==
   dependencies:
     "@vladbasin/ts-types" "^1.0.4"
     lodash "^4.17.21"
+    p-map "^4.0.0"
 
 "@vladbasin/ts-types@^1.0.4":
   version "1.0.4"
